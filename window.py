@@ -38,7 +38,7 @@ class Window (arcade.Window):
 
     def settings(self):
         for i in range(0,801,100):
-            pass
+            platforma=Platforma()
 
 
     def on_key_press (self, symbol: int, modifiers: int):
