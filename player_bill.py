@@ -1,5 +1,6 @@
 import arcade
 from animation import Animate
+from settings import *
 
 class Bill (Animate):
     def __init__(self,window):
@@ -36,3 +37,15 @@ class Bill (Animate):
     def update_animation(self, delta_time: float = 1 / 60):
         if self.wolk:
             super().update_animation(delta_time)
+    
+    def come_left(self):
+        if self.left>WIDHT:
+            self.center_x=0
+            return True
+        return False
+    
+    def come_right(self):
+        if self.right<0:
+            self.center_x=WIDHT
+            return True
+        return False
