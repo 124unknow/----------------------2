@@ -25,6 +25,8 @@ class Window (arcade.Window):
         self.platforms=arcade.SpriteList()
         self.platforms_for_lvl=[]
         self.settings()
+        self.jump=arcade.load_sound("sounds/jump.wav")
+        self.shoot=arcade.load_sound("sounds/shoot.wav")
         self.physics_engines=arcade.PhysicsEnginePlatformer(self.bill,self.platforms,GRAVIT)
 
     def on_draw(self):
@@ -73,6 +75,7 @@ class Window (arcade.Window):
             self.pulaa=Pula(self)
             self.pulaa.set_position(self.bill.center_x,self.bill.center_y+10)
             self.pula.append(self.pulaa)
+            arcade.play_sound(self.shoot,0.5)
         if symbol==arcade.key.A:
             self.bill.change_x=-POWER_RUN
             self.bill.wolk=True
@@ -87,6 +90,7 @@ class Window (arcade.Window):
             self.bill.down()
         if symbol==arcade.key.W and self.physics_engines.can_jump():
             self.physics_engines.jump(POWER_UP)
+            arcade.play_sound(self.jump,1)
         
     
 
