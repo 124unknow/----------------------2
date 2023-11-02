@@ -75,7 +75,7 @@ class Window (arcade.Window):
             self.pulaa=Pula(self)
             self.pulaa.set_position(self.bill.center_x,self.bill.center_y+10)
             self.pula.append(self.pulaa)
-            arcade.play_sound(self.shoot,0.5)
+            arcade.play_sound(self.shoot,0.5z)
         if symbol==arcade.key.A:
             self.bill.change_x=-POWER_RUN
             self.bill.wolk=True
