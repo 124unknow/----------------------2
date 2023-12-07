@@ -32,9 +32,10 @@ class Window (arcade.Window):
         self.run_man_enjay=[]
         self.list_sn=arcade.SpriteList()
         self.sniper_for_lvl=[]
+        self.shoot=arcade.SpriteList()
         self.settings()
         self.jump=arcade.load_sound("sounds/jump.wav")
-        self.shoot=arcade.load_sound("sounds/shoot.wav")
+        self.shootimg=arcade.load_sound("sounds/shoot.wav")
         self.physics_engines=arcade.PhysicsEnginePlatformer(self.bill,self.platforms,GRAVIT)
         
 
@@ -45,6 +46,7 @@ class Window (arcade.Window):
         self.platforms.draw()
         self.run_man.draw()
         self.list_sn.draw()
+        self.shoot.draw()
 
     def update(self,delta_time):
         self.pula.update()
@@ -52,6 +54,7 @@ class Window (arcade.Window):
         self.bill.update_animation()
         self.physics_engines.update()
         self.list_sn.update()
+        self.shoot.update()
 
         if self.bill.come_left():
             if self.index_texture<len(self.background)-2:
@@ -128,7 +131,7 @@ class Window (arcade.Window):
             self.pulaa=Pula(self)
             self.pulaa.set_position(self.bill.center_x,self.bill.center_y+10)
             self.pula.append(self.pulaa)
-            arcade.play_sound(self.shoot,0.5)
+            arcade.play_sound(self.shooting,0.5)
         if symbol==arcade.key.A:
             self.bill.change_x=-POWER_RUN
             self.bill.wolk=True
@@ -157,4 +160,4 @@ class Window (arcade.Window):
 
 lon=Window(WIDHT,HEIGHT,TITLE)
 arcade.run()
-#разместить снайперов
+#сделфть 3 жизни у била в виде медали
